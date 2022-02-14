@@ -5,10 +5,19 @@
     <vendor>f2janyway</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java </depends>
+
+
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.f2janyway.plugintest.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.f2janyway.plugintest.services.MyProjectService"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="com.github.f2janyway.plugintest.template.WizardTemplateProviderImpl"/>
     </extensions>
 
     <applicationListeners>

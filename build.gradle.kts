@@ -60,9 +60,9 @@ tasks {
         }
     }
 
-    wrapper {
-        gradleVersion = properties("gradleVersion")
-    }
+//    wrapper {
+//        gradleVersion = properties("gradleVersion")
+//    }
 
     patchPluginXml {
         version.set(properties("pluginVersion"))
