@@ -1,0 +1,12 @@
+<templateSet group="F2j Plugins">
+
+  <template name="hiltModule" value="import dagger.module&#10;import dagger.Provides&#10;import dagger.hilt.InstallIn&#10;&#10;@Module&#10;@InstallIn($component_name$::class)&#10;object $module_class$Module {&#10;    @Provides&#10;    fun provide$name$():$Return$ {&#10;    &#10;    }&#10;}" description="create hilt module" toReformat="false" toShortenFQNames="true">
+    <variable name="component_name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="module_class" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="Return" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PluginTest" value="true"/>
+    </context>
+  </template>
+</templateSet>

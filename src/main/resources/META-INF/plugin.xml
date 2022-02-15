@@ -7,11 +7,15 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
     <depends>org.jetbrains.kotlin</depends>
-    <depends>com.intellij.modules.java </depends>
-
+    <depends>com.intellij.modules.java</depends>
 
 
     <extensions defaultExtensionNs="com.intellij">
+
+        <defaultLiveTemplates file="/liveTemplates/F2jPlugins.xml"/>
+        <liveTemplateContext implementation="com.github.f2janyway.plugintest.liveTemplates.HiltContext"/>
+
+
         <applicationService serviceImplementation="com.github.f2janyway.plugintest.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.f2janyway.plugintest.services.MyProjectService"/>
     </extensions>
