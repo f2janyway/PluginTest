@@ -1,12 +1,44 @@
 <templateSet group="F2j Plugins">
 
-  <template name="hiltModule" value="import dagger.module&#10;import dagger.Provides&#10;import dagger.hilt.InstallIn&#10;&#10;@Module&#10;@InstallIn($component_name$::class)&#10;object $module_class$Module {&#10;    @Provides&#10;    fun provide$name$():$Return$ {&#10;    &#10;    }&#10;}" description="create hilt module" toReformat="false" toShortenFQNames="true">
-    <variable name="component_name" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="module_class" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
-    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="Return" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="PluginTest" value="true"/>
-    </context>
-  </template>
+    <template name="hm"
+              value="import dagger.module&#10;import dagger.Provides&#10;import dagger.hilt.InstallIn&#10;&#10;@Module&#10;@InstallIn($component_name$::class)&#10;object $module_class$Module {&#10;    @Provides&#10;    fun provide$name$():$Return$ {&#10;    &#10;    }&#10;}"
+              description="create hilt module" toReformat="false" toShortenFQNames="true">
+        <variable name="component_name" expression="" defaultValue="" alwaysStopAt="true"/>
+        <variable name="module_class" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true"/>
+        <variable name="name" expression="" defaultValue="" alwaysStopAt="true"/>
+        <variable name="Return" expression="" defaultValue="" alwaysStopAt="true"/>
+        <context>
+            <option name="PluginTest" value="true"/>
+        </context>
+    </template>
+    <template name="_retforit"
+              value="def retrofit_version = &quot;2.9.0&quot;&#10;implementation &quot;com.squareup.retrofit2:retrofit:$retrofit_version&quot;&#10;implementation &quot;com.squareup.retrofit2:converter-gson:$retrofit_version&quot;&#10;implementation &quot;com.squareup.retrofit2:converter-scalars:$retrofit_version&quot;&#10;implementation &quot;com.squareup.retrofit2:converter-wire:$retrofit_version&quot;&#10;implementation &quot;com.squareup.retrofit2:converter-protobuf:$retrofit_version&quot;&#10;implementation &quot;com.squareup.okhttp3:okhttp:5.0.0-alpha.3&quot;&#10;"
+              description="insert retrofit2" toReformat="false" toShortenFQNames="true">
+        <context>
+            <option name="PluginTest" value="true"/>
+        </context>
+    </template>
+    <template name="_hilt"
+              value="// add plugin&#10;//    id &quot;kotlin-kapt&quot;&#10;//    id &quot;dagger.hilt.android.plugin&quot;&#10;// add class path (.gradle) classpath &quot;com.google.dagger:hilt-android-gradle-plugin:$hilt_version&quot;&#10;def hilt_version = &quot;2.40.5&quot;&#10;implementation &quot;com.google.dagger:hilt-android:$hilt_version&quot;&#10;kapt &quot;com.google.dagger:hilt-android-compiler:$hilt_version&quot;&#10;implementation &quot;androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03&quot;&#10;kaptAndroidTest &quot;com.google.dagger:hilt-android-compiler:$hilt_version&quot;&#10;// For instrumented tests.&#10;androidTestImplementation &quot;com.google.dagger:hilt-android-testing:$hilt_version&quot;&#10;// For Robolectric tests.&#10;testImplementation &quot;com.google.dagger:hilt-android-testing:$hilt_version&quot;&#10;// ...with Kotlin.&#10;kaptTest &quot;com.google.dagger:hilt-android-compiler:$hilt_version&quot;&#10;"
+              description="insert hilt dependencies" toReformat="false" toShortenFQNames="true">
+        <context>
+            <option name="PluginTest" value="true"/>
+        </context>
+    </template>
+    <template name="_mockk"
+              value="$mockk_version = &quot;1.12.2&quot;&#10;testImplementation &quot;io.mockk:mockk:$mockk_version&quot;&#10;testImplementation &quot;io.mockk:mockk-agent-jvm:$mockk_version&quot;&#10;androidTestImplementation &quot;io.mockk:mockk-android:$mockk_version&quot;&#10;androidTestImplementation &quot;io.mockk:mockk-agent-jvm:$mockk_version&quot;"
+              description="insert mockk dependencies" toReformat="false" toShortenFQNames="true">
+        <context>
+            <option name="PluginTest" value="true"/>
+        </context>
+    </template>
+    <template name="_fragment"
+              value="def fragment_version = &quot;1.5.0-alpha02&quot;&#10;implementation &quot;androidx.fragment:fragment-ktx:$fragment_version&quot;&#10;def nav_version = &quot;2.5.0-alpha02&quot;&#10;implementation &quot;androidx.navigation:navigation-fragment-ktx:$nav_version&quot;&#10;implementation &quot;androidx.navigation:navigation-ui-ktx:$nav_version&quot;&#10;def fragment_test_version  = &quot;1.4.1&quot;&#10;debugImplementation &quot;androidx.fragment:fragment-testing:$fragment_test_version&quot;&#10;&#10; // insert for staging in android {...} &gt;&#10;//staging {&#10;        // Specifies a sorted list of fallback build types that the&#10;        // plugin should try to use when a dependency does not include a&#10;        // &quot;staging&quot; build type. You may specify as many fallbacks as you&#10;        // like, and the plugin selects the first build type that&quot;s&#10;        // available in the dependency.&#10;      //  matchingFallbacks = [&quot;debug&quot;, &quot;release&quot;]&#10;   // }&#10;//noinspection FragmentGradleConfiguration&#10;stagingImplementation &quot;androidx.fragment:fragment-testing:$fragment_test_version&quot;&#10;"
+              description="insert fragment dependencies" toReformat="false" toShortenFQNames="true">
+
+        <context>
+            <option name="PluginTest" value="true"/>
+        </context>
+    </template>
+
 </templateSet>

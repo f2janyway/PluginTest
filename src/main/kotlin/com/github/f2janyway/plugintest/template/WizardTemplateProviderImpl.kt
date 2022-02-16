@@ -51,6 +51,7 @@ val recyclerActivitySetupTemplate
         )
 
         recipe = { data: TemplateData ->
+
             mvvmRecyclerActivitySetup(
                 data as ModuleTemplateData,
                 packageNameParam.value,
